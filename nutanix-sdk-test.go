@@ -1,4 +1,4 @@
-package main
+package gonut
 
 import (
 	"bytes"
@@ -9,8 +9,6 @@ import (
 	"net/url"
 
 	"github.com/charmbracelet/log"
-
-	"github.com/RPA-Gang/gonutanix/pkg/models"
 )
 
 const (
@@ -35,11 +33,11 @@ func main() {
 	}
 }
 
-func getData() (models.HostListResponse, []http.Cookie) {
-	return models.HostListResponse{}, []http.Cookie{}
+func getData() (HostListResponse, []http.Cookie) {
+	return HostListResponse{}, []http.Cookie{}
 }
 
-func getHosts() models.HostListResponse {
+func getHosts() HostListResponse {
 	client := &http.Client{}
 	req, err := http.NewRequestWithContext(
 		context.Background(),
@@ -61,7 +59,7 @@ func getHosts() models.HostListResponse {
 	if err != nil {
 		log.Fatal(err)
 	}
-	responseStruct := models.HostListResponse{}
+	responseStruct := HostListResponse{}
 	if err = json.Unmarshal(body, &responseStruct); err != nil {
 		log.Fatal(err)
 	}

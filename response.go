@@ -1,4 +1,4 @@
-package models
+package gonut
 
 type HostListResponse struct {
 	Hosts      []VirtualMachine `json:"entities"`

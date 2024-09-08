@@ -1,4 +1,4 @@
-package client
+package gonut
 
 import (
 	"encoding/base64"
